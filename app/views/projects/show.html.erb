@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<h2 class="todo_list_title"><<%= @project.title %></h2>
+<p class="todo_list_sub_title"><%= @project.body %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.body %>
-</p>
 
 <div id="todo_items_wrapper">
   <%= render @project.tasks %>
@@ -17,5 +11,8 @@
     </div>
 </div>
 
+<div class="link"
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+<%= link_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
